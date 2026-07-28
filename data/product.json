@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Chicken Burger",
+        "price": 8.50,
+        "stock": 20,
+        "category": "Meals"
+    },
+    {
+        "name": "Beef Burger",
+        "price": 9.50,
+        "stock": 15,
+        "category": "Meals"
+    },
+    {
+        "name": "Fries",
+        "price": 4.00,
+        "stock": 30,
+        "category": "Snacks"
+    },
+    {
+        "name": "Water",
+        "price": 2.00,
+        "stock": 50,
+        "category": "Drinks"
+    }
+]
