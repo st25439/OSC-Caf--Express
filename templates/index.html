@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Welcome to OSC Café Express</h2>
+
+<input type="text" placeholder="Customer Name">
+
+<br><br>
+
+<input type="text" placeholder="Search Products">
+
+<h3>Products</h3>
+
+{% for product in products %}
+
+<div>
+
+<h4>{{ product.name }}</h4>
+
+<p>Price: ${{ product.price }}</p>
+
+<p>Stock: {{ product.stock }}</p>
+
+<p>Category: {{ product.category }}</p>
+
+<button>Add to Cart</button>
+
+<hr>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
