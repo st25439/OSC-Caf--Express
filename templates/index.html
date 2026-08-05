@@ -24,6 +24,16 @@
 
 <p>Category: {{ product.category }}</p>
 
+  <a href="/add/{{ product.name }}">
+        <button>Add to Cart</button>
+    </a>
+
+    <hr>
+
+</div>
+
+{% endfor %}
+
     <h2>Shopping Cart</h2>
 
 {% if cart %}
@@ -43,12 +53,5 @@
 <p>Your cart is empty.</p>
 
 {% endif %}
-</a>
-
-<hr>
-
-</div>
-
-{% endfor %}
 
 {% endblock %}
