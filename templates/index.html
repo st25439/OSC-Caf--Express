@@ -43,6 +43,10 @@
 {% for item in cart %}
 
 <li>{{ item.name }} x {{ item.quantity }} - ${{ "%.2f"|format(item.price * item.quantity) }}
+    
+     <a href="/remove/{{ item.name }}">
+        <button>Remove</button>
+    </a>
 </li>
 
 {% endfor %}
