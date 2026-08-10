@@ -27,7 +27,7 @@ def add_to_cart(product_name):
 
     for product in products:
         if product["name"] == product_name:
-            
+
             # Check if product is already in the cart
             found = False
 
@@ -40,7 +40,7 @@ def add_to_cart(product_name):
             # Add product for the first time
             if not found:
                 cart_item = product.copy()
-                cart_item["quantity"] = 1
+                cart_item["quantity"] = 3
             cart.append(cart_item)
 
     return redirect("/")
