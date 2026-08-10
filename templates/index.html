@@ -42,7 +42,8 @@
 
 {% for item in cart %}
 
-<li>{{ item.name }} - ${{ item.price }}</li>
+<li>{{ item.name }} x {{ item.quantity }} - ${{ "%.2f"|format(item.price * item.quantity) }}
+</li>
 
 {% endfor %}
 
