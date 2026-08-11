@@ -2,30 +2,43 @@
 
 {% block content %}
 
+<div class="welcome"></div>
 <h2>Welcome to OSC Cafe Express</h2>
 
 <input type="text" placeholder="Customer Name">
 
-<br><br>
-
 <input type="text" placeholder="Search Products">
 
-<h3>Products</h3>
+</div>
+<h2>Our Menu</h2>
+<div class="product-grid">
 
 {% for product in products %}
 
-<div>
-
-<h4>{{ product.name }}</h4>
-
-<p>Price: ${{ product.price }}</p>
-
-<p>Stock: {{ product.stock }}</p>
-
-<p>Category: {{ product.category }}</p>
+<div class="product-card">
+    <div class="product-image">
+         {% if product.category == "Meals" %}
+                🍔
+            {% elif product.category == "Snacks" %}
+                🍟
+            {% else %}
+                🥤
+            {% endif %}
+    </div>
+    <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        <p class="price">
+            ${{ "%.2f"| format(product.price) }}
+            </p>
+            <p class="category">
+            {{ product.category }}
+            </p>
+             <p class="stock">
+                {{ product.stock }} available
+            </p>
 
   <a href="/add/{{ product.name }}">
-        <button>Add to Cart</button>
+        <button class="add-button">Add to Cart</button>
     </a>
 
     <hr>
@@ -33,8 +46,9 @@
 </div>
 
 {% endfor %}
+<div class="cart-section">
 
-    <h2>Shopping Cart</h2>
+    <h2>🛒Shopping Cart</h2>
 
 {% if cart %}
 
@@ -45,7 +59,7 @@
 <li>{{ item.name }} x {{ item.quantity }} - ${{ "%.2f"|format(item.price * item.quantity) }}
     
      <a href="/remove/{{ item.name }}">
-        <button>Remove</button>
+        <button class="remove-button">Remove</button>
     </a>
 </li>
 
