@@ -66,3 +66,22 @@ h2 {
 .product-card:hover {
     transform: translateY(-5px);
 }
+
+/* Product Image Area */
+
+.product-image {
+    background-color: #e8f1f8;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+
+/* Product Information */
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
