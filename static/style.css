@@ -29,3 +29,10 @@ nav a:hover {
     padding: 25px;
     text-align: center;
 }
+
+.welcome input {
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
