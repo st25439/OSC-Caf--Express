@@ -101,3 +101,55 @@ h2 {
     color: #666;
     font-weight: bold;
 }
+
+.stock {
+    color: #228b22;
+}
+
+
+/* Add to Cart */
+
+.add-button {
+    background-color: #123c69;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.add-button:hover {
+    background-color: #0b2948;
+}
+
+
+/* Shopping Cart */
+
+.cart-section {
+    background-color: white;
+    margin: 30px 25px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-section li {
+    margin-bottom: 15px;
+}
+
+
+/* Remove Button */
+
+.remove-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background-color: #b52b27;
+}
