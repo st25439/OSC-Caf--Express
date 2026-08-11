@@ -4,12 +4,19 @@ body {
     margin: 0;
     color: #222;
 }
+
 header {
     background-color: #123c69;
     color: white;
     padding: 20px;
 }
+
 header h1 {
     margin: 0 0 15px 0;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
