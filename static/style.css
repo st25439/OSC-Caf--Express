@@ -36,3 +36,19 @@ nav a:hover {
     border: 1px solid #ccc;
     border-radius: 6px;
 }
+
+h2 {
+    margin-left: 25px;
+}
+
+
+/* Product Grid */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
