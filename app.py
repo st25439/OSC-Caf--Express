@@ -10,14 +10,27 @@ def load_products():
     with open("data/product.json", "r") as file:
         return json.load(file)
 
+   # Calculate cart total
+def calculate_total():
+    total = 0
+
+    for item in cart:
+        total += item["price"] * item["quantity"]
+
+    return total
+
  # Home page
 @app.route("/")
 def home():
     products = load_products()
+
+    total = calculate_total() 
+
     return render_template(
         "index.html",
         products=products,
-        cart= cart
+        cart= cart,
+        total=total
     )
 
 # Add product to cart
@@ -39,12 +52,26 @@ def add_to_cart(product_name):
 
             # Add product for the first time
             if not found:
-                cart_item = product.copy()
-                cart_item["quantity"] = 1
-            cart.append(cart_item)
+                cart.append({
+                    "name": product["name"],
+                    "price": product["price"],
+                    "quantity": 1
+                })
+
+            break
+    return redirect("/")
+
+@app.route("/remove/<product_name>")
+def remove_from_cart(product_name):
+
+    for item in cart:
+
+        if item["name"] == product_name:
+
+            cart.remove(item)
+            break
 
     return redirect("/")
- 
 
 if __name__ == "__main__":
     app.run(debug=True)
