@@ -40,3 +40,32 @@
             </li>
 
             {% endfor %}
+
+             </ul>
+
+        <hr>
+
+        <p>
+            Subtotal:
+            ${{ "%.2f"|format(total) }}
+        </p>
+
+        <p>
+            Student Discount:
+            $0.00
+        </p>
+
+        <h2>
+            Total:
+            ${{ "%.2f"|format(total) }}
+        </h2>
+
+        <button type="submit" class="checkout-button">
+            Confirm Order
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
