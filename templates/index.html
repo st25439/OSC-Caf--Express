@@ -68,15 +68,18 @@
 
 </ul>
 
+<p class="cart-total">
+    <strong>Total: ${{ "%.2f"|format(total) }}</strong>
+</p>
+<a href="/checkout">
+    <button class="checkout-button">Proceed to Checkout</button>
+</a>
 {% else %}
 
 <p>Your cart is empty.</p>
 
-<p class="cart-total">
-    <strong>Total: ${{ "%.2f"|format(total) }}</strong>
-</p>
-
 {% endif %}
+
 
 </div>
 
