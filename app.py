@@ -73,5 +73,15 @@ def remove_from_cart(product_name):
 
     return redirect("/")
 
+@app.route("/checkout")
+def checkout():
+    total = calculate_total()
+
+    return render_template(
+        "checkout.html",
+        cart=cart,
+        total=total
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)
