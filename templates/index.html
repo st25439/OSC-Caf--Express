@@ -4,7 +4,17 @@
 
 <div class="welcome">
     <h2>Welcome to OSC Cafe Express</h2>
-    <input type="text" placeholder="Customer Name">
+  <form action="/set_customer" method="POST">
+    <label for="customer_name">Customer Name:</label>
+    <input
+        type="text"
+        id="customer_name"
+        name="customer_name"
+        placeholder="Enter your name"
+        required
+    >
+    <button type="submit">Continue</button>
+</form>
     <input type="text" placeholder="Search Products">
 </div>
 
