@@ -1,9 +1,18 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 import json
 
 app = Flask(__name__)
 
 cart = []
+customer_name = ""
+
+@app.route("/set_customer", methods=["POST"])
+def set_customer():
+    global customer_name
+
+    customer_name = request.form["customer_name"].strip()
+
+    return redirect("/")
 
 # Load products
 def load_products():
