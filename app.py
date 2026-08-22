@@ -39,7 +39,7 @@ def home():
         "index.html",
         products=products,
         cart= cart,
-        total=total
+     customer_name=customer_name
     )
 
 # Add product to cart
