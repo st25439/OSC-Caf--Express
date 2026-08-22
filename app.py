@@ -82,13 +82,21 @@ def remove_from_cart(product_name):
 
     return redirect("/")
 
-@app.route("/checkout")
+@app.route("/checkout", methods=["GET", "POST"])
 def checkout():
+
     total = calculate_total()
+
+    if request.method == "POST":
+
+        order_type = request.form["order_type"]
+
+        return redirect("/")
 
     return render_template(
         "checkout.html",
         cart=cart,
+        customer_name=customer_name,
         total=total
     )
 
