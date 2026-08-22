@@ -87,6 +87,16 @@
 </a>
 {% else %}
 
+{% if cart %}
+
+<a href="/checkout">
+    <button class="checkout-button">
+        Proceed to Checkout
+    </button>
+</a>
+
+{% endif %}
+
 <p>Your cart is empty.</p>
 
 {% endif %}
