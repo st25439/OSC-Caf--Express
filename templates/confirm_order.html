@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Confirm Your Order</h2>
+
+<p><strong>Customer:</strong> {{ customer_name }}</p>
+
+<p>
+    <strong>Order Type:</strong>
+    {{ order_type|capitalize }}
+</p>
+
+{% if order_type == "delivery" %}
+    <p><strong>Address:</strong> {{ address }}</p>
+    <p><strong>Phone:</strong> {{ phone }}</p>
+{% endif %}
+
