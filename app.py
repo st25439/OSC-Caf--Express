@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 cart = []
 customer_name = ""
+order_number = 1000
 
 @app.route("/set_customer", methods=["POST"])
 def set_customer():
@@ -27,6 +28,20 @@ def calculate_total():
         total += item["price"] * item["quantity"]
 
     return total
+
+def save_order(order):
+    """Save a completed order to the orders JSON file."""
+
+    try:
+        with open("data/orders.json", "r") as file:
+            orders = json.load(file)
+    except FileNotFoundError:
+        orders = []
+
+    orders.append(order)
+
+    with open("data/orders.json", "w") as file:
+        json.dump(orders, file, indent=4)
 
  # Home page
 @app.route("/")
