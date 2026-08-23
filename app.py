@@ -135,16 +135,30 @@ def checkout():
 
 @app.route("/place_order", methods=["POST"])
 def place_order():
-    global cart
+    global cart, order_number
 
     if not cart:
         return redirect("/")
+    
+    order_total = calculate_total()
 
+    order = {
+        "order_number": order_number,
+        "customer_name": customer_name,
+        "items": cart.copy(),
+        "total": order_total
+    }
+
+    save_order(order)
+
+    completed_order = order.copy()
+
+    order_number += 1
     cart.clear()
 
     return render_template(
         "order_complete.html",
-        customer_name=customer_name
+        order=completed_order
     )
 
 if __name__ == "__main__":
