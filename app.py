@@ -39,7 +39,8 @@ def home():
         "index.html",
         products=products,
         cart= cart,
-     customer_name=customer_name
+     customer_name=customer_name,
+     total=total
     )
 
 # Add product to cart
@@ -90,6 +91,13 @@ def checkout():
     if request.method == "POST":
 
         order_type = request.form["order_type"]
+        address = request.form["address"].strip()
+        phone = request.form["phone"].strip()
+
+        if order_type == "delivery":
+
+            if not address or not phone:
+                return "Please enter your delivery address and phone number."
 
         return redirect("/")
 
