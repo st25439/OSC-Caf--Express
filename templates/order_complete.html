@@ -4,9 +4,29 @@
 
 <h2>Order Placed Successfully!</h2>
 
-<p>Thank you, {{ customer_name }}.</p>
+<h3>Order #{{ order.order_number }}</h3>
 
-<p>Your order has been received by OSC Cafe Express.</p>
+<p>
+    <strong>Customer:</strong>
+    {{ order.customer_name }}
+</p>
+
+<h3>Order Summary</h3>
+
+<ul>
+{% for item in order.items %}
+    <li>
+        {{ item.name }} x {{ item.quantity }} - ${{ "%.2f"|format(item.price * item.quantity) }}
+    </li>
+{% endfor %}
+</ul>
+
+<h3>
+    Total:
+    ${{ "%.2f"|format(order.total) }}
+</h3>
+
+<p>Thank you for ordering from OSC Cafe Express.</p>
 
 <a href="/">
     <button>Return to Menu</button>
