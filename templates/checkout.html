@@ -34,7 +34,7 @@
                    required>
             Pickup
         </label>
-         <br>
+         <br></br>
 
         <label>
             <input type="radio"
@@ -46,15 +46,44 @@
 
         <br><br>
 
-        <button type="submit">Continue</button>
+      <div>
+            <label for="address">Delivery Address:</label>
+            <br>
+            <input
+                type="text"
+                id="address"
+                name="address"
+                placeholder="Enter delivery address"
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="phone">Phone Number:</label>
+            <br>
+            <input
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="Enter phone number"
+            >
+        </div>
+
+        <br>
+
+        <button type="submit">
+            Continue
+        </button>
 
     </form>
+
     <br>
 
     <a href="/">
         <button type="button">Back to Menu</button>
     </a>
 
-</div>
+</div>    
 
 {% endblock %}
