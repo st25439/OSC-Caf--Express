@@ -89,17 +89,27 @@ def checkout():
     total = calculate_total()
 
     if request.method == "POST":
-
         order_type = request.form["order_type"]
-        address = request.form["address"].strip()
-        phone = request.form["phone"].strip()
 
         if order_type == "delivery":
+            address = request.form["address"].strip()
+            phone = request.form["phone"].strip()
 
-            if not address or not phone:
-                return "Please enter your delivery address and phone number."
+            delivery_charge = 3.00
+            final_total = total + delivery_charge
 
-        return redirect("/")
+            return render_template(
+                "confirm_order.html",
+                customer_name=customer_name,
+                cart=cart,
+                total=total,
+                delivery_charge=delivery_charge,
+                final_total=final_total,
+                order_type=order_type,
+                address=address,
+                phone=phone
+            )
+        
 
     return render_template(
         "checkout.html",
