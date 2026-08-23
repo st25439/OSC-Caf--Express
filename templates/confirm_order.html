@@ -16,3 +16,34 @@
     <p><strong>Phone:</strong> {{ phone }}</p>
 {% endif %}
 
+<h3>Order Items</h3>
+
+<ul>
+{% for item in cart %}
+    <li>
+        {{ item.name }} x {{ item.quantity }}- ${{ "%.2f"|format(item.price * item.quantity) }}
+    </li>
+{% endfor %}
+</ul>
+
+<p>Subtotal: ${{ "%.2f"|format(total) }}</p>
+
+{% if delivery_charge > 0 %}
+    <p>Delivery charge: ${{ "%.2f"|format(delivery_charge) }}</p>
+{% endif %}
+
+<h3>
+    Final Total:
+    ${{ "%.2f"|format(final_total) }}
+</h3>
+
+<form method="POST" action="/place_order">
+    <button type="submit">Place Order</button>
+</form>
+
+<a href="/checkout">
+    <button type="button">Go Back</button>
+</a>
+
+{% endblock %}
+
