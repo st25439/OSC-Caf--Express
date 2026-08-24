@@ -5,7 +5,24 @@ app = Flask(__name__)
 
 cart = []
 customer_name = ""
-order_number = 1000
+def get_next_order_number():
+    """Return the next available order number."""
+
+    try:
+        with open("data/orders.json", "r") as file:
+            orders = json.load(file)
+
+        if not orders:
+            return 1000
+
+        highest_number = max(
+            order["order_number"] for order in orders
+        )
+
+        return highest_number + 1
+
+    except FileNotFoundError:
+        return 1000
 
 @app.route("/set_customer", methods=["POST"])
 def set_customer():
@@ -105,6 +122,10 @@ def checkout():
 
     if request.method == "POST":
         order_type = request.form["order_type"]
+
+        address = ""
+        phone = ""
+        delivery_charge = 0.00
 
         if order_type == "delivery":
             address = request.form["address"].strip()
