@@ -8,7 +8,24 @@
 
 <p>
     <strong>Customer:</strong>
-    {{ order.customer_name }}
+    {{ order["customer_name"] }}
+</p>
+
+<p>
+    <strong>Order Type:</strong>
+    {{ order["order_type"] }}
+</p>
+
+{% if order["order_type"] == "Delivery" %}
+    <p>
+        <strong>Address:</strong>
+        {{ order["address"] }}
+    </p>
+{% endif %}
+
+<p>
+    <strong>Phone:</strong>
+    {{ order["phone"] }}
 </p>
 
 <h3>Order Summary</h3>
@@ -25,6 +42,23 @@
     Total:
     ${{ "%.2f"|format(order.total) }}
 </h3>
+
+{% if order["delivery_charge"] > 0 %}
+    <p>
+        <strong>Delivery charge:</strong>
+        ${{ "%.2f"|format(order["delivery_charge"]) }}
+    </p>
+{% endif %}
+
+<h2>
+    Final Total:
+    ${{ "%.2f"|format(order["final_total"]) }}
+</h2>
+
+<p>
+    <strong>Status:</strong>
+    {{ order["status"] }}
+</p>
 
 <p>Thank you for ordering from OSC Cafe Express.</p>
 
