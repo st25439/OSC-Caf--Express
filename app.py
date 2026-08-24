@@ -142,11 +142,28 @@ def place_order():
     
     order_total = calculate_total()
 
+    order_type = request.form.get("order_type", "delivery")
+    address = request.form.get("address", "")
+    phone = request.form.get("phone", "")
+
+    if order_type == "delivery":
+        delivery_charge = 3.00
+    else:
+        delivery_charge = 0.00
+
+    final_total = order_total + delivery_charge
+
     order = {
         "order_number": order_number,
         "customer_name": customer_name,
+        "order_type": order_type,
+        "address": address,
+        "phone": phone,
         "items": cart.copy(),
-        "total": order_total
+        "total": order_total,
+        "delivery_charge": delivery_charge,
+        "final_total": final_total,
+        "status": "Confirmed"
     }
 
     save_order(order)
@@ -160,6 +177,7 @@ def place_order():
         "order_complete.html",
         order=completed_order
     )
+   
 
 if __name__ == "__main__":
     app.run(debug=True)
