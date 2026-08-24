@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 cart = []
 customer_name = ""
+
 def get_next_order_number():
     """Return the next available order number."""
 
@@ -156,7 +157,7 @@ def checkout():
 
 @app.route("/place_order", methods=["POST"])
 def place_order():
-    global cart, order_number
+    global cart
 
     if not cart:
         return redirect("/")
@@ -175,7 +176,7 @@ def place_order():
     final_total = order_total + delivery_charge
 
     order = {
-        "order_number": order_number,
+        "order_number": get_next_order_number(),
         "customer_name": customer_name,
         "order_type": order_type,
         "address": address,
@@ -191,7 +192,6 @@ def place_order():
 
     completed_order = order.copy()
 
-    order_number += 1
     cart.clear()
 
     return render_template(
