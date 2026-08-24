@@ -26,5 +26,79 @@
         "delivery_charge": 3.0,
         "final_total": 25.0,
         "status": "Confirmed"
+    },
+    {
+        "order_number": 1000,
+        "customer_name": "MK",
+        "order_type": "delivery",
+        "address": "Masai",
+        "phone": "0398567494",
+        "items": [
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 2
+            },
+            {
+                "name": "Water",
+                "price": 2.0,
+                "quantity": 2
+            },
+            {
+                "name": "Beef Burger",
+                "price": 9.5,
+                "quantity": 1
+            },
+            {
+                "name": "Fries",
+                "price": 4.0,
+                "quantity": 1
+            }
+        ],
+        "total": 34.5,
+        "delivery_charge": 3.0,
+        "final_total": 37.5,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1001,
+        "customer_name": "MJ",
+        "order_type": "delivery",
+        "address": "frgty",
+        "phone": "09847474",
+        "items": [
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 2
+            },
+            {
+                "name": "Water",
+                "price": 2.0,
+                "quantity": 1
+            }
+        ],
+        "total": 19.0,
+        "delivery_charge": 3.0,
+        "final_total": 22.0,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1002,
+        "customer_name": "k",
+        "order_type": "delivery",
+        "address": "",
+        "phone": "098765432",
+        "items": [
+            {
+                "name": "Beef Burger",
+                "price": 9.5,
+                "quantity": 1
+            }
+        ],
+        "total": 9.5,
+        "delivery_charge": 3.0,
+        "final_total": 12.5,
+        "status": "Confirmed"
     }
 ]
