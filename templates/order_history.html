@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Order History</h2>
+
+{% if orders %}
+
+    {% for order in orders %}
+
+        <div class="order">
+
+            <h3>Order #{{ order.order_number }}</h3>
+
+            <p>
+                <strong>Customer:</strong>
+                {{ order.customer_name }}
+            </p>
+
+            <p>
+                <strong>Order Type:</strong>
+                {{ order.order_type|capitalize }}
+            </p>
+
+            <p>
+                <strong>Total:</strong>
+                ${{ "%.2f"|format(order.final_total) }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ order.status }}
+            </p>
+
+            {% if order.status == "Confirmed" %}
+                <form
+                    method="POST"
+                    action="/cancel_order/{{ order.order_number }}"
+                >
+                    <button type="submit">
+                        Cancel Order
+                    </button>
+                </form>
+            {% endif %}
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>No orders have been placed yet.</p>
+
+{% endif %}
+
+{% endblock %}
