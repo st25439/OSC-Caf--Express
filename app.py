@@ -198,7 +198,26 @@ def place_order():
         "order_complete.html",
         order=completed_order
     )
-   
+
+@app.route("/cancel_order/<int:order_number>", methods=["POST"])
+def cancel_order(order_number):
+    """Cancel a confirmed order using its order number."""
+
+    try:
+        with open("data/orders.json", "r") as file:
+            orders = json.load(file)
+    except FileNotFoundError:
+        return redirect("/")
+
+    for order in orders:
+        if order["order_number"] == order_number:
+            order["status"] = "Cancelled"
+            break
+
+    with open("data/orders.json", "w") as file:
+        json.dump(orders, file, indent=4)
+
+    return redirect("/order_history")
 
 if __name__ == "__main__":
     app.run(debug=True)
