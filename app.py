@@ -27,11 +27,24 @@ def get_next_order_number():
 
 @app.route("/set_customer", methods=["POST"])
 def set_customer():
+ """Save and validate the customer's name."""
     global customer_name
 
-    customer_name = request.form["customer_name"].strip()
+    customer_name = request.form.get(
+        "customer_name", ""
+    ).strip()
 
-    return redirect("/")
+    if not customer_name:
+        return redirect("/")
+
+   customer_name = request.form.get(
+        "customer_name", ""
+    ).strip()
+
+   if not customer_name:
+        return redirect("/")
+
+   return redirect("/")
 
 # Load products
 def load_products():
