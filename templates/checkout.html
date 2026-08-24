@@ -6,6 +6,10 @@
 
     <h2>🧾 Checkout</h2>
 
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
    <p>Customer: <strong>{{ customer_name }}</strong></p>
 
     <h3>Your Order</h3>
