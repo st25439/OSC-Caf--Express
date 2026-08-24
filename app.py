@@ -27,24 +27,11 @@ def get_next_order_number():
 
 @app.route("/set_customer", methods=["POST"])
 def set_customer():
- """Save and validate the customer's name."""
     global customer_name
 
-    customer_name = request.form.get(
-        "customer_name", ""
-    ).strip()
+    customer_name = request.form["customer_name"].strip()
 
-    if not customer_name:
-        return redirect("/")
-
-   customer_name = request.form.get(
-        "customer_name", ""
-    ).strip()
-
-   if not customer_name:
-        return redirect("/")
-
-   return redirect("/")
+    return redirect("/")
 
 # Load products
 def load_products():
@@ -134,16 +121,51 @@ def checkout():
 
     total = calculate_total()
 
-    if request.method == "POST":
-        order_type = request.form["order_type"]
+    if not cart:
+        return redirect("/")
 
-        address = ""
-        phone = ""
-        delivery_charge = 0.00
+    if request.method == "POST":
+
+        order_type = request.form.get(
+            "order_type", "pickup"
+        )
 
         if order_type == "delivery":
-            address = request.form["address"].strip()
-            phone = request.form["phone"].strip()
+
+            address = request.form.get(
+                "address", ""
+            ).strip()
+
+            phone = request.form.get(
+                "phone", ""
+            ).strip()
+
+            if not address:
+                return render_template(
+                    "checkout.html",
+                    cart=cart,
+                    customer_name=customer_name,
+                    total=total,
+                    error="Please enter your delivery address."
+                )
+
+            if not phone:
+                return render_template(
+                    "checkout.html",
+                    cart=cart,
+                    customer_name=customer_name,
+                    total=total,
+                    error="Please enter your phone number."
+                )
+
+            if not valid_phone(phone):
+                return render_template(
+                    "checkout.html",
+                    cart=cart,
+                    customer_name=customer_name,
+                    total=total,
+                    error="Please enter a valid phone number."
+                )
 
             delivery_charge = 3.00
             final_total = total + delivery_charge
@@ -159,7 +181,18 @@ def checkout():
                 address=address,
                 phone=phone
             )
-        
+
+        return render_template(
+            "confirm_order.html",
+            customer_name=customer_name,
+            cart=cart,
+            total=total,
+            delivery_charge=0.00,
+            final_total=total,
+            order_type="pickup",
+            address="",
+            phone=""
+        )
 
     return render_template(
         "checkout.html",
@@ -167,6 +200,21 @@ def checkout():
         customer_name=customer_name,
         total=total
     )
+
+def valid_phone(phone):
+    """Check that the phone number contains valid characters."""
+    phone = phone.replace(" ", "")
+
+    if phone.startswith("+64"):
+        phone = phone[3:]
+
+    if not phone.isdigit():
+        return False
+
+    if len(phone) < 8 or len(phone) > 10:
+        return False
+
+    return True
 
 @app.route("/place_order", methods=["POST"])
 def place_order():

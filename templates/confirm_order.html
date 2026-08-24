@@ -39,9 +39,23 @@
 
 <form method="POST" action="/place_order">
 
-    <input type="hidden" name="order_type" value="{{ order_type }}">
-    <input type="hidden" name="address" value="{{ address }}">
-    <input type="hidden" name="phone" value="{{ phone }}">
+     <input
+        type="hidden"
+        name="order_type"
+        value="{{ order_type }}"
+    >
+
+    <input
+        type="hidden"
+        name="address"
+        value="{{ address }}"
+    >
+
+    <input
+        type="hidden"
+        name="phone"
+        value="{{ phone }}"
+    >
 
     <button type="submit">Place Order</button>
 
