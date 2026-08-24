@@ -123,5 +123,130 @@
         "delivery_charge": 3.0,
         "final_total": 24.0,
         "status": "Confirmed"
+    },
+    {
+        "order_number": 1004,
+        "customer_name": "uk",
+        "order_type": "pickup",
+        "address": "",
+        "phone": "",
+        "items": [
+            {
+                "name": "Water",
+                "price": 2.0,
+                "quantity": 1
+            },
+            {
+                "name": "Beef Burger",
+                "price": 9.5,
+                "quantity": 1
+            }
+        ],
+        "total": 11.5,
+        "delivery_charge": 0.0,
+        "final_total": 11.5,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1005,
+        "customer_name": "Jathu",
+        "order_type": "delivery",
+        "address": "NZ",
+        "phone": "0220455679",
+        "items": [
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 2
+            },
+            {
+                "name": "Fries",
+                "price": 4.0,
+                "quantity": 1
+            }
+        ],
+        "total": 21.0,
+        "delivery_charge": 3.0,
+        "final_total": 24.0,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1006,
+        "customer_name": "Rei",
+        "order_type": "delivery",
+        "address": "UK",
+        "phone": "0253768932",
+        "items": [
+            {
+                "name": "Beef Burger",
+                "price": 9.5,
+                "quantity": 2
+            },
+            {
+                "name": "Water",
+                "price": 2.0,
+                "quantity": 1
+            },
+            {
+                "name": "Fries",
+                "price": 4.0,
+                "quantity": 1
+            },
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 1
+            }
+        ],
+        "total": 33.5,
+        "delivery_charge": 3.0,
+        "final_total": 36.5,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1007,
+        "customer_name": "Rei",
+        "order_type": "delivery",
+        "address": "UK",
+        "phone": "0253768932",
+        "items": [
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 2
+            },
+            {
+                "name": "Fries",
+                "price": 4.0,
+                "quantity": 1
+            },
+            {
+                "name": "Water",
+                "price": 2.0,
+                "quantity": 1
+            }
+        ],
+        "total": 23.0,
+        "delivery_charge": 3.0,
+        "final_total": 26.0,
+        "status": "Confirmed"
+    },
+    {
+        "order_number": 1008,
+        "customer_name": "Rei",
+        "order_type": "delivery",
+        "address": "uj",
+        "phone": "5323456789",
+        "items": [
+            {
+                "name": "Chicken Burger",
+                "price": 8.5,
+                "quantity": 1
+            }
+        ],
+        "total": 8.5,
+        "delivery_charge": 3.0,
+        "final_total": 11.5,
+        "status": "Confirmed"
     }
 ]
