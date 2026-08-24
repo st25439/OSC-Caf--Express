@@ -219,5 +219,20 @@ def cancel_order(order_number):
 
     return redirect("/order_history")
 
+@app.route("/order_history")
+def order_history():
+    """Display all saved customer orders."""
+
+    try:
+        with open("data/orders.json", "r") as file:
+            orders = json.load(file)
+    except FileNotFoundError:
+        orders = []
+
+    return render_template(
+        "order_history.html",
+        orders=orders
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)
