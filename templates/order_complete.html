@@ -31,16 +31,16 @@
 <h3>Order Summary</h3>
 
 <ul>
-{% for item in order.items %}
+{% for item in order["items"] %}
     <li>
-        {{ item.name }} x {{ item.quantity }} - ${{ "%.2f"|format(item.price * item.quantity) }}
+        {{ item["name"] }} x {{ item["quantity"] }} - ${{ "%.2f"|format(item["price"] * item["quantity"]) }}
     </li>
 {% endfor %}
 </ul>
 
 <h3>
     Total:
-    ${{ "%.2f"|format(order.total) }}
+    ${{ "%.2f"|format(order["total"]) }}
 </h3>
 
 {% if order["delivery_charge"] > 0 %}
