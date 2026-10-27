@@ -40,11 +40,10 @@ def load_products():
 
    # Calculate cart total
 def calculate_total():
+    """Calculate and return the total cart price."""
     total = 0
-
     for item in cart:
         total += item["price"] * item["quantity"]
-
     return total
 
 def save_order(order):
